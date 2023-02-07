@@ -25,6 +25,12 @@ module openconfig-packet-match-types {
 
   oc-ext:openconfig-version "1.3.2";
 
+  revision "2023-02-07" {
+    description
+      "AAdd OSPF and VRRP protocol identities";
+    reference "1.3.3";
+  }
+
   revision "2021-07-14" {
     description
       "Use auto-generated regex for port-num-range pattern statements";
@@ -242,6 +248,22 @@ module openconfig-packet-match-types {
       "IP-in-IP tunneling (4)";
     reference
       "RFC2003: IP Encapsulation within IP";
+  }
+
+    identity IP_OSPFIGP {
+    base IP_PROTOCOL;
+    description
+      "OSPF IGP (89)";
+    reference
+      "RFC2328: OSPF version 2";
+  }
+
+    identity IP_VRRP {
+    base IP_PROTOCOL;
+    description
+      "Virtual Router Redundancy Protocol (112)";
+    reference
+      "RFC5798: Virtual Router Redundancy Protocol (VRRP) Version 3 for IPv4 and IPv6";
   }
 
   identity TCP_FLAGS {
